@@ -1,0 +1,19 @@
+[
+  {
+    "vendor_id": "V001",
+    "name": "Gaurav Mishra",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-11",
+    "last_active": "2025-08-11T16:13:07.219546+00:00"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "demand_id": "D001",
+    "item_name": "dragon_fruit",
+    "total_requests": 15,
+    "last_requested": "2024-01-20T09:00:00Z",
+    "locations": [
+      {
+        "latitude": 28.7045,
+        "longitude": 77.1028,
+        "request_count": 8
+      },
+      {
+        "latitude": 28.7043,
+        "longitude": 77.1022,
+        "request_count": 7
+      }
+    ],
+    "avg_max_price": 300,
+    "priority": "high"
+  },
+  {
+    "demand_id": "D002",
+    "item_name": "avocado",
+    "total_requests": 12,
+    "last_requested": "2024-01-20T08:30:00Z",
+    "locations": [
+      {
+        "latitude": 28.7046,
+        "longitude": 77.1029,
+        "request_count": 12
+      }
+    ],
+    "avg_max_price": 250,
+    "priority": "medium"
+  },
+  {
+    "demand_id": "D003",
+    "item_name": "blueberries",
+    "total_requests": 8,
+    "last_requested": "2024-01-20T07:45:00Z",
+    "locations": [
+      {
+        "latitude": 28.7041,
+        "longitude": 77.1025,
+        "request_count": 5
+      },
+      {
+        "latitude": 28.704,
+        "longitude": 77.1023,
+        "request_count": 3
+      }
+    ],
+    "avg_max_price": 400,
+    "priority": "medium"
+  },
+  {
+    "demand_id": "D004",
+    "item_name": "organic_spinach",
+    "total_requests": 20,
+    "last_requested": "2024-01-20T10:15:00Z",
+    "locations": [
+      {
+        "latitude": 28.7042,
+        "longitude": 77.1024,
+        "request_count": 12
+      },
+      {
+        "latitude": 28.7043,
+        "longitude": 77.1027,
+        "request_count": 8
+      }
+    ],
+    "avg_max_price": 80,
+    "priority": "high"
+  },
+  {
+    "demand_id": "D005",
+    "item_name": "tomato",
+    "total_requests": 1,
+    "last_requested": "2025-08-11T16:30:20.470680+00:00",
+    "locations": [
+      {
+        "latitude": 28.7041,
+        "longitude": 77.1025,
+        "request_count": 1
+      }
+    ],
+    "avg_max_price": 100,
+    "priority": "medium"
+  }
+]

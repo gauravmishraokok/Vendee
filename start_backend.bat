@@ -1,0 +1,16 @@
+@echo off
+echo Starting Vendee Backend...
+echo.
+cd backend
+echo Creating virtual environment...
+python -m venv venv
+echo.
+echo Activating virtual environment...
+call venv\Scripts\activate
+echo.
+echo Installing dependencies...
+pip install -r requirements.txt
+echo.
+echo Starting FastAPI server...
+python main.py
+pause
