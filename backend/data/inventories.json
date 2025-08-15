@@ -1,40 +1,16 @@
 [
   {
     "vendor_id": "V001",
-    "last_updated": "2024-01-20T08:30:00Z",
-    "image_url": "/uploads/v001_cart_20240120.jpg",
+    "last_updated": "2025-08-14T21:15:34.915383+00:00",
+    "image_url": "/uploads/V001_cart_20250815_024530.jpg",
     "items": [
       {
-        "name": "banana",
-        "quantity": "5 kg",
-        "price_per_unit": 40,
+        "name": "potato",
+        "quantity": "1 kg",
+        "price_per_unit": 20,
         "unit": "kg",
         "freshness": "fresh",
-        "detection_confidence": 0.92
-      },
-      {
-        "name": "apple",
-        "quantity": "3 kg",
-        "price_per_unit": 120,
-        "unit": "kg",
-        "freshness": "fresh",
-        "detection_confidence": 0.89
-      },
-      {
-        "name": "tomato",
-        "quantity": "2 kg",
-        "price_per_unit": 30,
-        "unit": "kg",
-        "freshness": "fresh",
-        "detection_confidence": 0.94
-      },
-      {
-        "name": "onion",
-        "quantity": "4 kg",
-        "price_per_unit": 25,
-        "unit": "kg",
-        "freshness": "fresh",
-        "detection_confidence": 0.91
+        "detection_confidence": 0.94921875
       }
     ],
     "total_items": 4,
@@ -383,5 +359,480 @@
     ],
     "total_items": 5,
     "estimated_value": 1499.96
+  },
+  {
+    "vendor_id": "V011",
+    "last_updated": "2025-08-12T12:28:36.542155+00:00",
+    "image_url": "/uploads/V011_cart_20250812_175832.jpg",
+    "items": [
+      {
+        "name": "potato",
+        "quantity": "1 kg",
+        "price_per_unit": 50,
+        "unit": "kg",
+        "freshness": "fresh",
+        "detection_confidence": 0.314453125
+      }
+    ],
+    "total_items": 1,
+    "estimated_value": 100
+  },
+  {
+    "vendor_id": "V012",
+    "last_updated": "2025-08-12T10:30:54.601766+00:00",
+    "image_url": "/uploads/V012_cart_20250812_160033.jpg",
+    "items": [
+      {
+        "name": "tomato",
+        "quantity": "1 kg",
+        "price_per_unit": 49.97,
+        "unit": "kg",
+        "freshness": "fresh",
+        "detection_confidence": 1
+      }
+    ],
+    "total_items": 1,
+    "estimated_value": 49.97
+  },
+  {
+    "vendor_id": "V013",
+    "last_updated": "2025-08-12T14:32:35.106456+00:00",
+    "image_url": "/uploads/V013_cart_20250812_200223.jpg",
+    "items": [
+      {
+        "name": "tomato",
+        "quantity": "1 kg",
+        "price_per_unit": 295,
+        "unit": "kg",
+        "freshness": "fresh",
+        "detection_confidence": 1
+      }
+    ],
+    "total_items": 1,
+    "estimated_value": 295
+  },
+  {
+    "vendor_id": "V014",
+    "last_updated": "2025-08-12T14:44:01.309686+00:00",
+    "image_url": "/uploads/V014_cart_20250812_201347.jpg",
+    "items": [
+      {
+        "name": "watermelon",
+        "quantity": "1 kg",
+        "price_per_unit": 100.04,
+        "unit": "kg",
+        "freshness": "fresh",
+        "detection_confidence": 0.4501953125
+      }
+    ],
+    "total_items": 1,
+    "estimated_value": 100.04
+  },
+  {
+    "vendor_id": "V023",
+    "last_updated": "2025-08-13T18:37:41.037070+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "5",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 5
+      },
+      {
+        "name": "Banana",
+        "quantity": "51",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 55
+      },
+      {
+        "name": "Tomato",
+        "quantity": "15",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 555
+      },
+      {
+        "name": "Onion",
+        "quantity": "35",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 5555
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 6170
+  },
+  {
+    "vendor_id": "V025",
+    "last_updated": "2025-08-13T19:02:00.410139+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "2",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 110
+      },
+      {
+        "name": "Banana",
+        "quantity": "2",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 220
+      },
+      {
+        "name": "Tomato",
+        "quantity": "2",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 330
+      },
+      {
+        "name": "Onion",
+        "quantity": "2",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 440
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 1100
+  },
+  {
+    "vendor_id": "V027",
+    "last_updated": "2025-08-13T19:04:30.138097+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 30
+      },
+      {
+        "name": "Banana",
+        "quantity": "2",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 39.97
+      },
+      {
+        "name": "Tomato",
+        "quantity": "5",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 0.03
+      },
+      {
+        "name": "Onion",
+        "quantity": "54",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 0.03
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 70.03
+  },
+  {
+    "vendor_id": "V029",
+    "last_updated": "2025-08-13T19:05:47.102888+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 50
+      },
+      {
+        "name": "Banana",
+        "quantity": "2",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 60
+      },
+      {
+        "name": "Tomato",
+        "quantity": "3",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 7
+      },
+      {
+        "name": "Onion",
+        "quantity": "4",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 8
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 125
+  },
+  {
+    "vendor_id": "V031",
+    "last_updated": "2025-08-13T19:11:51.419432+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "124",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 124
+      },
+      {
+        "name": "Banana",
+        "quantity": "124",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 124124
+      },
+      {
+        "name": "Tomato",
+        "quantity": "124124",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 12412
+      },
+      {
+        "name": "Onion",
+        "quantity": "124",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 120
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 136780
+  },
+  {
+    "vendor_id": "V033",
+    "last_updated": "2025-08-13T19:12:48.978551+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 20
+      },
+      {
+        "name": "Banana",
+        "quantity": "3",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 39.98
+      },
+      {
+        "name": "Tomato",
+        "quantity": "5",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 5.98
+      },
+      {
+        "name": "Onion",
+        "quantity": "45",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 3.97
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 69.92999999999999
+  },
+  {
+    "vendor_id": "V035",
+    "last_updated": "2025-08-13T19:19:12.518595+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 5
+      },
+      {
+        "name": "Banana",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 4.98
+      },
+      {
+        "name": "Tomato",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 555
+      },
+      {
+        "name": "Onion",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 555
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 1119.98
+  },
+  {
+    "vendor_id": "V037",
+    "last_updated": "2025-08-14T03:23:25.156447+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 50
+      },
+      {
+        "name": "Banana",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 50
+      },
+      {
+        "name": "Tomato",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 30
+      },
+      {
+        "name": "Onion",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 39.98
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 169.98
+  },
+  {
+    "vendor_id": "V039",
+    "last_updated": "2025-08-14T20:53:47.789362+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 1
+      },
+      {
+        "name": "Banana",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 2
+      },
+      {
+        "name": "Tomato",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 3
+      },
+      {
+        "name": "Onion",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 4
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 10
+  },
+  {
+    "vendor_id": "V041",
+    "last_updated": "2025-08-14T21:02:29.986436+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 0.01
+      },
+      {
+        "name": "Banana",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 0.02
+      },
+      {
+        "name": "Tomato",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 0.02
+      },
+      {
+        "name": "Onion",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 0.03
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 0.08
+  },
+  {
+    "vendor_id": "V043",
+    "last_updated": "2025-08-14T21:05:27.667925+00:00",
+    "image_url": "cart_photo.jpg",
+    "items": [
+      {
+        "name": "Mango",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.95,
+        "price_per_unit": 10
+      },
+      {
+        "name": "Banana",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.92,
+        "price_per_unit": 20
+      },
+      {
+        "name": "Onion",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.85,
+        "price_per_unit": 30
+      },
+      {
+        "name": "Tomato",
+        "quantity": "1 kg",
+        "unit": "kg",
+        "detection_confidence": 0.88,
+        "price_per_unit": 40
+      }
+    ],
+    "total_items": 4,
+    "estimated_value": 100
   }
 ]

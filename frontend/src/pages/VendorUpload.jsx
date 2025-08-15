@@ -79,8 +79,12 @@ function VendorUpload() {
     setSuccess('');
 
     try {
-      // Update inventory
-      const response = await vendorAPI.updateInventory(vendorId, inventoryItems);
+      // Update inventory (include analyzed image URL so it is stored with inventory)
+      const response = await vendorAPI.updateInventory(
+        vendorId,
+        inventoryItems,
+        analysisResult?.image_url || null
+      );
       
       if (response.success) {
         setSuccess('Inventory updated successfully!');

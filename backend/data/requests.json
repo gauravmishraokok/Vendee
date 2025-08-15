@@ -120,5 +120,8 @@
     ],
     "total_offers_sent": 1,
     "max_retries": 3
-  }
-]
+  },
+  {
+    "request_id": "R20250812200741",
+    "customer_id": "C001",
+    "customer_location": 

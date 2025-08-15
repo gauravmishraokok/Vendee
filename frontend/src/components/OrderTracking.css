@@ -1,0 +1,273 @@
+.order-tracking-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.order-tracking-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideInUp 0.4s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.tracking-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.order-details {
+  padding: 24px 30px;
+  background: #f8fafc;
+}
+
+.order-info h3 {
+  margin: 0 0 16px 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.order-info p {
+  margin: 8px 0;
+  color: #374151;
+  font-size: 1rem;
+}
+
+/* Status Section */
+.status-section {
+  padding: 40px 30px;
+  text-align: center;
+  background: white;
+}
+
+.status-indicator {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: pulse 2s infinite;
+}
+
+.status-icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.status-content {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.status-title {
+  margin: 0 0 12px 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.status-message {
+  margin: 0 0 24px 0;
+  color: #6b7280;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  animation: loadingDots 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes loadingDots {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Tracking Section */
+.tracking-section {
+  padding: 0 30px 30px;
+  background: white;
+}
+
+.tracking-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
+}
+
+.eta-info h4 {
+  margin: 0 0 8px 0;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.eta-text {
+  margin: 0 0 4px 0;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.eta-text strong {
+  color: #8b5cf6;
+  font-size: 1.1rem;
+}
+
+.vendor-name {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.contact-btn {
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.call-btn:hover {
+  background: #dcfce7;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.message-btn:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-tracking-content {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  
+  .tracking-header {
+    padding: 20px 24px;
+  }
+  
+  .tracking-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .order-details,
+  .status-section,
+  .tracking-section {
+    padding: 20px 24px;
+  }
+  
+  .tracking-info {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .contact-actions {
+    justify-content: center;
+  }
+}

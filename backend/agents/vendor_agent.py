@@ -84,36 +84,34 @@ class VendorAgent:
                     "items": []
                 }
             
-            # Import and use the existing YOLO detector
+            # Ensure uploads directory exists and save the uploaded image for later reference
+            os.makedirs("uploads", exist_ok=True)
+            saved_image_path = os.path.join("uploads", f"{vendor_id}_cart_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg")
+            image.save(saved_image_path, format="JPEG")
+
+            # Use the HF-backed detector to classify items with confidences
             from services.yolo_detector import analyze_vendor_cart
-            
-            # Save temporary image for analysis
-            temp_path = f"temp_cart_{vendor_id}.jpg"
-            image.save(temp_path)
-            
-            # Detect items using existing detector
-            detected_items = analyze_vendor_cart(temp_path)
-            
-            # Clean up temp file
-            os.remove(temp_path)
+            # Pass the in-memory PIL image to avoid extra disk I/O during inference
+            detections = analyze_vendor_cart(image, top_k=3, min_confidence=0.3)
             
             # Convert to inventory format
-            inventory_items = []
-            for item in detected_items:
+            inventory_items: List[Dict[str, Any]] = []
+            for det in detections:
                 inventory_items.append({
-                    "name": item,
-                    "quantity": "1 kg",  # Default quantity
-                    "price_per_unit": 0,  # Vendor will set price
+                    "name": det.get("name", "unknown"),
+                    "quantity": "1 kg",
+                    "price_per_unit": 0,
                     "unit": "kg",
                     "freshness": "fresh",
-                    "detection_confidence": 0.9  # Mock confidence
+                    "detection_confidence": float(det.get("confidence", 0.0)),
                 })
             
             return {
                 "success": True,
                 "items": inventory_items,
                 "total_items": len(inventory_items),
-                "image_quality": "good"
+                "image_quality": "good",
+                "image_url": f"/uploads/{os.path.basename(saved_image_path)}"
             }
             
         except Exception as e:

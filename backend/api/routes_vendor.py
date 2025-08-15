@@ -80,6 +80,7 @@ async def analyze_cart_image(request: CartImageAnalysisRequest):
                 "items": result["items"],
                 "total_items": result["total_items"],
                 "image_quality": result["image_quality"],
+                "image_url": result.get("image_url"),
                 "message": "Image analyzed successfully"
             }
         else:
