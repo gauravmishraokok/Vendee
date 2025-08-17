@@ -547,6 +547,68 @@
   font-weight: 700;
 }
 
+/* Quantity Selection Styles */
+.vendor-items {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.vendor-items h5 {
+  font-size: 1rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.quantity-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quantity-selection label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.quantity-selection span:first-child {
+  font-weight: 600;
+  color: #1e293b;
+  min-width: 120px;
+}
+
+.quantity-input {
+  width: 80px;
+  padding: 0.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.price-info {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-width: 80px;
+  text-align: right;
+}
+
 
 
 /* AI Features Section */

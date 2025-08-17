@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { getIndianProfileImage } from '../utils/api';
 import VendorMap from '../components/VendorMap';
 import VendorDetailsModal from '../components/VendorDetailsModal';
 import OrderTracking from '../components/OrderTracking';
@@ -33,7 +34,7 @@ function ManualBuy() {
 
 
 
-  // Mock vendor data
+  // Mock vendor data with Indian profile images
   useEffect(() => {
     const mockVendors = [
       {
@@ -43,7 +44,7 @@ function ManualBuy() {
         location: "Near Central Market",
         distance: 0.8,
         type: "stationary",
-        image: "https://via.placeholder.com/150x100/10b981/ffffff?text=Cart",
+        image: getIndianProfileImage("rajesh-kumar-vendor"),
         items: [
           { name: "Mango", price: 80, quantity: "2 kg", unit: "kg" },
           { name: "Banana", price: 60, quantity: "1 kg", unit: "kg" },
@@ -58,7 +59,7 @@ function ManualBuy() {
         location: "Moving on Main Road",
         distance: 1.2,
         type: "moving",
-        image: "https://via.placeholder.com/150x100/3b82f6/ffffff?text=Cart",
+        image: getIndianProfileImage("amit-singh-vendor"),
         items: [
           { name: "Onion", price: 30, quantity: "1 kg", unit: "kg" },
           { name: "Potato", price: 25, quantity: "2 kg", unit: "kg" },
@@ -73,7 +74,7 @@ function ManualBuy() {
         location: "Stationary at Park",
         distance: 2.1,
         type: "stationary",
-        image: "https://via.placeholder.com/150x100/8b5cf6/ffffff?text=Cart",
+        image: getIndianProfileImage("priya-sharma-vendor"),
         items: [
           { name: "Apple", price: 120, quantity: "1 kg", unit: "kg" },
           { name: "Orange", price: 90, quantity: "1 kg", unit: "kg" },
@@ -88,7 +89,7 @@ function ManualBuy() {
         location: "Near Metro Station",
         distance: 1.5,
         type: "moving",
-        image: "https://via.placeholder.com/150x100/f59e0b/ffffff?text=Cart",
+        image: getIndianProfileImage("suresh-patel-vendor"),
         items: [
           { name: "Milk", price: 60, quantity: "1 liter", unit: "liter" },
           { name: "Bread", price: 35, quantity: "1 packet", unit: "packet" },
@@ -103,7 +104,7 @@ function ManualBuy() {
         location: "Community Park",
         distance: 2.8,
         type: "stationary",
-        image: "https://via.placeholder.com/150x100/ec4899/ffffff?text=Cart",
+        image: getIndianProfileImage("lakshmi-devi-vendor"),
         items: [
           { name: "Rice", price: 45, quantity: "1 kg", unit: "kg" },
           { name: "Dal", price: 120, quantity: "1 kg", unit: "kg" },
@@ -362,7 +363,7 @@ function ManualBuy() {
             {filteredVendors.map(vendor => (
               <div key={vendor.id} className="vendor-card">
                 <div className="vendor-header">
-                  <img src={vendor.image} alt="Vendor Cart" className="vendor-image" />
+                  <img src={vendor.image} alt={vendor.name} className="vendor-image" />
                   <div className="vendor-info">
                     <h4>{vendor.name}</h4>
                     <p className="vendor-location">{vendor.location}</p>
@@ -385,7 +386,7 @@ function ManualBuy() {
                         <div key={index} className="item-row">
                           <div className="item-info">
                             <span className="item-name">{item.name}</span>
-                            <span className="item-price">₹{item.price}/{item.unit}</span>
+                            <span className="item-price">₹{item.price}/{item.unit || 'kg'}</span>
                           </div>
                           <div className="item-actions">
                                                          <input

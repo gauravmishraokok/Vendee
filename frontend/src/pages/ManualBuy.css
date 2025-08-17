@@ -285,10 +285,12 @@
 }
 
 .vendor-image {
-  width: 80px;
+  width: 60px;
   height: 60px;
-  border-radius: 8px;
+  border-radius: 50%;
   object-fit: cover;
+  border: 3px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .vendor-info h4 {

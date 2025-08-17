@@ -9,7 +9,7 @@
       "address": "Connaught Place, New Delhi"
     },
     "status": "active",
-    "type": "stationary",
+    "type": "moving",
     "rating": 4.5,
     "total_ratings": 127,
     "specialties": [
@@ -18,7 +18,7 @@
     ],
     "operating_hours": "06:00-20:00",
     "onboarded_date": "2024-01-15",
-    "last_active": "2025-08-14T21:15:44.549379+00:00"
+    "last_active": "2025-08-17T12:35:24.550371+00:00"
   },
   {
     "vendor_id": "V002",
@@ -751,5 +751,107 @@
     "operating_hours": "06:00-20:00",
     "onboarded_date": "2025-08-14",
     "last_active": "2025-08-14T21:05:27.661925+00:00"
+  },
+  {
+    "vendor_id": "V044",
+    "name": "Gaurav Mishra",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-16",
+    "last_active": "2025-08-16T10:21:18.716199+00:00"
+  },
+  {
+    "vendor_id": "V045",
+    "name": "Gaurav Mishra",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-16",
+    "last_active": "2025-08-16T10:21:43.600665+00:00"
+  },
+  {
+    "vendor_id": "V046",
+    "name": "CodeGolf-RITACM",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-17",
+    "last_active": "2025-08-17T11:30:10.830850+00:00"
+  },
+  {
+    "vendor_id": "V047",
+    "name": "CodeGolf-RITACM",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-17",
+    "last_active": "2025-08-17T11:30:34.468990+00:00"
+  },
+  {
+    "vendor_id": "V048",
+    "name": "Rajesh Kumar ",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-17",
+    "last_active": "2025-08-17T12:34:17.612180+00:00"
+  },
+  {
+    "vendor_id": "V049",
+    "name": "Rajesh Kumar ",
+    "phone": "08762349500",
+    "location": {
+      "latitude": 28.7041,
+      "longitude": 77.1025
+    },
+    "status": "active",
+    "type": "stationary",
+    "rating": 0.0,
+    "total_ratings": 0,
+    "specialties": [],
+    "operating_hours": "06:00-20:00",
+    "onboarded_date": "2025-08-17",
+    "last_active": "2025-08-17T12:34:50.970957+00:00"
   }
 ]

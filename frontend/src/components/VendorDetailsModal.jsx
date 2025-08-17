@@ -34,7 +34,7 @@ const VendorDetailsModal = ({ vendor, isOpen, onClose, onRequest }) => {
                 <div key={index} className="item-card">
                   <div className="item-header">
                     <h5>{item.name}</h5>
-                    <span className="item-price">₹{item.price}/{item.unit}</span>
+                    <span className="item-price">₹{item.price}/{item.unit || 'kg'}</span>
                   </div>
                   <div className="item-actions">
                     <input

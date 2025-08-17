@@ -87,7 +87,7 @@ const OrderTracking = ({ order, onClose }) => {
           <div className="order-info">
             <h3>Order #{order.id}</h3>
             <p><strong>Vendor:</strong> {order.vendor.name}</p>
-            <p><strong>Items:</strong> {order.items.map(item => `${item.quantity} ${item.unit} ${item.name}`).join(', ')}</p>
+            <p><strong>Items:</strong> {order.items.map(item => `${item.quantity} ${item.name}`).join(', ')}</p>
             <p><strong>Total:</strong> ₹{order.total}</p>
           </div>
         </div>

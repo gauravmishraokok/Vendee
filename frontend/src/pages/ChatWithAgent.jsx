@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { customerAPI, utils } from '../utils/api';
+import VendorLocationModal from '../components/VendorLocationModal';
 import './ChatWithAgent.css';
 
 function ChatWithAgent() {
@@ -8,6 +9,8 @@ function ChatWithAgent() {
   const [loading, setLoading] = useState(false);
   const [customerLocation, setCustomerLocation] = useState(null);
   const [currentRequest, setCurrentRequest] = useState(null);
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [selectedVendorForLocation, setSelectedVendorForLocation] = useState(null);
 
   useEffect(() => {
     getCurrentLocation();
@@ -161,10 +164,13 @@ function ChatWithAgent() {
                           📞 Call
                         </a>
                         <button
-                          onClick={() => handleRequestMovingVendor(vendor.vendor_id, vendor.available_items)}
+                          onClick={() => {
+                            setSelectedVendorForLocation(vendor);
+                            setShowLocationModal(true);
+                          }}
                           className="btn btn-small btn-secondary"
                         >
-                          📍 Get Directions
+                          📍 Get Location
                         </button>
                       </div>
                     </div>
@@ -199,11 +205,18 @@ function ChatWithAgent() {
             </div>
           )}
           
-          <div className="message-timestamp">{message.timestamp}</div>
-        </div>
+          <div className="message-timestamp">{message.timestamp}        </div>
       </div>
-    );
-  };
+
+      {/* Vendor Location Modal */}
+      <VendorLocationModal
+        vendor={selectedVendorForLocation}
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+      />
+    </div>
+  );
+};
 
   return (
     <div className="chat-with-agent">
@@ -319,6 +332,13 @@ function ChatWithAgent() {
           </div>
         </div>
       </div>
+
+      {/* Vendor Location Modal */}
+      <VendorLocationModal
+        vendor={selectedVendorForLocation}
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+      />
     </div>
   );
 }

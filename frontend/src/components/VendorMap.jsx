@@ -182,7 +182,7 @@ const VendorMap = ({
                     <ul>
                       {vendor.items.map((item, index) => (
                         <li key={index}>
-                          {item.name} - ₹{item.price}/{item.unit}
+                          {item.name} - ₹{item.price}/{item.unit || 'kg'}
                         </li>
                       ))}
                     </ul>

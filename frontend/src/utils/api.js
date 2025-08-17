@@ -178,3 +178,32 @@ export const utils = {
     });
   },
 };
+
+// Function to get random profile images
+export const getRandomProfileImage = (gender = 'any', seed = null) => {
+  // Use DiceBear API for consistent random avatars
+  const baseUrl = 'https://api.dicebear.com/7.x/avataaars/svg';
+  const params = new URLSearchParams({
+    seed: seed || Math.random().toString(36).substring(7),
+    backgroundColor: ['b6e3f4', 'c0aede', 'ffdfbf', 'ffd5dc'].join(','),
+    skinColor: ['ffdbac', 'f1c27d', 'e0ac69', 'c68642', '8d5524'].join(','),
+    hairColor: ['090806', '2c1810', '8b4513', 'a95c1a', 'd4a574', 'e6c384'].join(','),
+    style: 'circle'
+  });
+  
+  return `${baseUrl}?${params.toString()}`;
+};
+
+// Function to get random Indian-looking profile images
+export const getIndianProfileImage = (seed = null) => {
+  const baseUrl = 'https://api.dicebear.com/7.x/avataaars/svg';
+  const params = new URLSearchParams({
+    seed: seed || Math.random().toString(36).substring(7),
+    backgroundColor: ['ffdfbf', 'f1c27d', 'e0ac69'].join(','), // Warmer skin tones
+    skinColor: ['ffdbac', 'f1c27d', 'e0ac69', 'c68642'].join(','), // Indian skin tones
+    hairColor: ['090806', '2c1810', '8b4513', 'a95c1a'].join(','), // Dark hair colors
+    style: 'circle'
+  });
+  
+  return `${baseUrl}?${params.toString()}`;
+};

@@ -6,10 +6,10 @@ function VendorNav() {
   const location = useLocation();
   
   const navItems = [
-    { path: '/vendor/dashboard', label: '📊 Dashboard', icon: '📊' },
-    { path: '/vendor/profile', label: '👤 Profile', icon: '👤' },
-    { path: '/leaderboard', label: '🏆 Leaderboard', icon: '🏆' },
-    { path: '/government-schemes', label: '🏛️ Schemes', icon: '🏛️' }
+    { path: '/vendor/dashboard', label: 'Dashboard', icon: '📊' },
+    { path: '/vendor/profile', label: 'Profile', icon: '👤' },
+    { path: '/leaderboard', label: 'Leaderboard', icon: '🏆' },
+    { path: '/government-schemes', label: 'Schemes', icon: '🏛️' }
   ];
 
   return (

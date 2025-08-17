@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getIndianProfileImage } from '../utils/api';
 import './Leaderboard.css';
 
 function Leaderboard() {
@@ -7,7 +8,7 @@ function Leaderboard() {
   const [activeTab, setActiveTab] = useState('vendors');
   const [timeFilter, setTimeFilter] = useState('month');
 
-  // Mock leaderboard data
+  // Mock leaderboard data with Indian profile images
   const vendorLeaderboard = [
     {
       id: 1,
@@ -16,7 +17,7 @@ function Leaderboard() {
       rating: 4.9,
       orders: 156,
       earnings: 45200,
-      image: "https://via.placeholder.com/60x60/10b981/ffffff?text=RK",
+      image: getIndianProfileImage("rajesh-kumar"),
       badge: "🥇 Top Seller",
       category: "Vegetables"
     },
@@ -27,7 +28,7 @@ function Leaderboard() {
       rating: 4.8,
       orders: 142,
       earnings: 38900,
-      image: "https://via.placeholder.com/60x60/3b82f6/ffffff?text=PS",
+      image: getIndianProfileImage("priya-sharma"),
       badge: "🥈 Quality Star",
       category: "Fruits"
     },
@@ -38,7 +39,7 @@ function Leaderboard() {
       rating: 4.7,
       orders: 128,
       earnings: 35600,
-      image: "https://via.placeholder.com/60x60/8b5cf6/ffffff?text=AS",
+      image: getIndianProfileImage("amit-singh"),
       badge: "🥉 Rising Star",
       category: "Dairy"
     },
@@ -49,7 +50,7 @@ function Leaderboard() {
       rating: 4.6,
       orders: 115,
       earnings: 32400,
-      image: "https://via.placeholder.com/60x60/f59e0b/ffffff?text=LD",
+      image: getIndianProfileImage("lakshmi-devi"),
       badge: "⭐ Consistent",
       category: "Grains"
     },
@@ -60,7 +61,7 @@ function Leaderboard() {
       rating: 4.5,
       orders: 98,
       earnings: 28900,
-      image: "https://via.placeholder.com/60x60/ef4444/ffffff?text=SP",
+      image: getIndianProfileImage("suresh-patel"),
       badge: "🔥 Hot Seller",
       category: "Beverages"
     }
@@ -73,7 +74,7 @@ function Leaderboard() {
       rank: 1,
       orders: 89,
       savings: 12450,
-      image: "https://via.placeholder.com/60x60/10b981/ffffff?text=AG",
+      image: getIndianProfileImage("anjali-gupta"),
       badge: "🥇 Smart Shopper",
       loyaltyPoints: 1250
     },
@@ -83,7 +84,7 @@ function Leaderboard() {
       rank: 2,
       orders: 76,
       savings: 10890,
-      image: "https://via.placeholder.com/60x60/3b82f6/ffffff?text=RV",
+      image: getIndianProfileImage("rahul-verma"),
       badge: "🥈 Bargain Hunter",
       loyaltyPoints: 980
     },
@@ -93,7 +94,7 @@ function Leaderboard() {
       rank: 3,
       orders: 65,
       savings: 9230,
-      image: "https://via.placeholder.com/60x60/8b5cf6/ffffff?text=MK",
+      image: getIndianProfileImage("meera-kapoor"),
       badge: "🥉 Regular Customer",
       loyaltyPoints: 850
     },
@@ -103,7 +104,7 @@ function Leaderboard() {
       rank: 4,
       orders: 58,
       savings: 8150,
-      image: "https://via.placeholder.com/60x60/f59e0b/ffffff?text=VS",
+      image: getIndianProfileImage("vikram-singh"),
       badge: "⭐ Loyal Customer",
       loyaltyPoints: 720
     },
@@ -113,7 +114,7 @@ function Leaderboard() {
       rank: 5,
       orders: 52,
       savings: 7340,
-      image: "https://via.placeholder.com/60x60/ef4444/ffffff?text=PS",
+      image: getIndianProfileImage("pooja-sharma"),
       badge: "🔥 New Star",
       loyaltyPoints: 650
     }

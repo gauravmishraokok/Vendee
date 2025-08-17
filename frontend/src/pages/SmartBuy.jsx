@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import OrderTracking from '../components/OrderTracking';
+import VendorLocationModal from '../components/VendorLocationModal';
 import './SmartBuy.css';
 
 function SmartBuy() {
@@ -15,6 +16,8 @@ function SmartBuy() {
   const [itemQuantities, setItemQuantities] = useState({});
   const [showTracking, setShowTracking] = useState(false);
   const [currentOrder, setCurrentOrder] = useState(null);
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [selectedVendorForLocation, setSelectedVendorForLocation] = useState(null);
   const messagesEndRef = useRef(null);
 
   // Auto-scroll to bottom only when user sends a message
@@ -148,47 +151,46 @@ function SmartBuy() {
     }
     
     if (scenario === 'biryani_items') {
-             if (lowerMessage.includes('yes') || lowerMessage.includes('okay') || lowerMessage.includes('continue')) {
-         return {
-           content: "Perfect! Now let me ask a few questions to find the best vendors for you:\n\n1. Do you prefer moving vendors (they come to you) or stationary vendors (you go to them)?\n2. What's your budget range?\n3. Do you need everything delivered today?\n4. How many people will be eating?",
-           action: 'ask_preferences'
-         };
-       }
+      // Ask for preferences first
+      return {
+        content: "Great! Now let me ask a few questions to find the best vendors for you:\n\n1. Do you prefer moving vendors (they come to you) or stationary vendors (you go to them)?\n2. What's your budget range?\n3. Do you need everything delivered today?\n4. How many people will be eating?",
+        action: 'ask_preferences'
+      };
     }
 
-         if (scenario === 'ask_preferences') {
-       // Hardcoded response for the three questions - always show the same response regardless of user input
-       return {
-         content: "Excellent choices! 🎯\n\n• **Moving vendors** - Perfect for convenience!\n• **Budget: ₹2000** - Great budget for quality ingredients\n• **Delivery today** - I'll prioritize fast delivery options\n• **4 people** - Perfect portion sizing\n\nLet me analyze the best vendors for your biryani ingredients with these preferences...",
-         action: 'show_biryani_vendors',
-                      vendors: [
-               {
-                 id: 1,
-                 name: "Rajesh Kumar",
-                 type: "Moving",
-                 distance: "0.8 km",
-                 rating: "4.8",
-                 items: ["Biryani Ingredients for 4 people"],
-                 price: "₹850 total",
-                 estimatedDelivery: "15-20 mins",
-                 reasoning: "Best match: Moving vendor, within budget, has most ingredients",
-                 coordinates: { lat: 28.7041, lng: 77.1025 }
-               },
-               {
-                 id: 2,
-                 name: "Amit Singh",
-                 type: "Moving",
-                 distance: "1.2 km",
-                 rating: "4.6",
-                 items: ["Biryani Ingredients for 4 people"],
-                 price: "₹920 total",
-                 estimatedDelivery: "25-30 mins",
-                 reasoning: "Complete ingredient set, slightly higher price but excellent quality",
-                 coordinates: { lat: 28.7045, lng: 77.1030 }
-               }
-             ]
-       };
-     }
+    if (scenario === 'ask_preferences') {
+      // Accept any response and show vendor recommendations
+      return {
+        content: "Excellent choices! 🎯\n\n• **Moving vendors** - Perfect for convenience!\n• **Budget: ₹2000** - Great budget for quality ingredients\n• **Delivery today** - I'll prioritize fast delivery options\n• **4 people** - Perfect portion sizing\n\nLet me analyze the best vendors for your biryani ingredients with these preferences...",
+        action: 'show_biryani_vendors',
+        vendors: [
+          {
+            id: 1,
+            name: "Rajesh Kumar",
+            type: "Moving",
+            distance: "0.8 km",
+            rating: "4.8",
+            items: ["Biryani Ingredients for 4 people"],
+            price: "₹850 total",
+            estimatedDelivery: "15-20 mins",
+            reasoning: "Best match: Moving vendor, within budget, has most ingredients",
+            coordinates: { lat: 28.7041, lng: 77.1025 }
+          },
+          {
+            id: 2,
+            name: "Amit Singh",
+            type: "Moving",
+            distance: "1.2 km",
+            rating: "4.6",
+            items: ["Biryani Ingredients for 4 people"],
+            price: "₹920 total",
+            estimatedDelivery: "25-30 mins",
+            reasoning: "Complete ingredient set, slightly higher price but excellent quality",
+            coordinates: { lat: 28.7045, lng: 77.1030 }
+          }
+        ]
+      };
+    }
     
     if (scenario === 'vendor_selection') {
       return {
@@ -241,6 +243,7 @@ function SmartBuy() {
 
     // Simulate AI thinking
     setTimeout(() => {
+      // Use the current scenario to get the appropriate response
       const aiResponse = getAIResponse(inputMessage, currentScenario);
       
       const agentMessage = {
@@ -259,12 +262,12 @@ function SmartBuy() {
       if (aiResponse.action === 'show_biryani_items') {
         setCurrentScenario('biryani_items');
         setSelectedItems(aiResponse.items);
-              } else if (aiResponse.action === 'ask_preferences') {
-          setCurrentScenario('ask_preferences');
-          // Wait for user input, don't auto-respond
+      } else if (aiResponse.action === 'ask_preferences') {
+        setCurrentScenario('ask_preferences');
       } else if (aiResponse.action === 'show_biryani_vendors') {
         setVendorOptions(aiResponse.vendors);
         setShowVendorSelection(true);
+        setCurrentScenario('initial'); // Reset scenario after showing vendors
       } else if (aiResponse.action === 'show_banana_vendors') {
         setVendorOptions(aiResponse.vendors);
         setShowVendorSelection(true);
@@ -319,37 +322,51 @@ function SmartBuy() {
     if (itemName.includes('Biryani Ingredients')) {
       return itemQuantities[key] || 4;
     }
-    return itemQuantities[key] || 0;
+    // For bananas, default to 2 kg
+    if (itemName === 'Bananas') {
+      return itemQuantities[key] || 2;
+    }
+    // For tomatoes, default to 2 kg
+    if (itemName === 'Tomatoes') {
+      return itemQuantities[key] || 2;
+    }
+    // For other items, default to 1 kg
+    return itemQuantities[key] || 1;
   };
 
   const handlePlaceOrder = (vendor) => {
-    // Get all items with quantity > 0
-    const selectedItems = vendor.items.filter(item => {
-      const quantity = getItemQuantity(vendor.id, item);
-      return quantity > 0;
-    });
+    // Check if vendor is stationary - show location modal instead of order tracking
+    if (vendor.type === 'Stationary') {
+      setSelectedVendorForLocation(vendor);
+      setShowLocationModal(true);
+      return;
+    }
+
+    // Get all items with quantity > 0 for this vendor
+    const selectedItems = vendor.items
+      .map(item => {
+        const quantity = getItemQuantity(vendor.id, item);
+        return { name: item, quantity };
+      })
+      .filter(item => item.quantity > 0);
 
     if (selectedItems.length === 0) {
-      alert('Please select at least one item with quantity > 0');
+      alert('Please select at least one item to order');
       return;
     }
 
     // Calculate total price (simplified calculation)
     const totalPrice = selectedItems.reduce((total, item) => {
-      const quantity = getItemQuantity(vendor.id, item);
       // Extract price from vendor data or use default
       const price = vendor.price ? parseInt(vendor.price.replace(/[^\d]/g, '')) : 100;
-      return total + (price * quantity);
+      return total + (price * item.quantity);
     }, 0);
 
     // Create order object
     const order = {
       id: Math.floor(Math.random() * 10000) + 1000,
       vendor: vendor,
-      items: selectedItems.map(item => ({
-        name: item,
-        quantity: getItemQuantity(vendor.id, item)
-      })),
+      items: selectedItems,
       total: totalPrice,
       timestamp: new Date().toISOString()
     };
@@ -370,7 +387,14 @@ function SmartBuy() {
   };
 
   const handleVendorSelect = (vendor) => {
-    // Create order object for single vendor selection
+    // Check if vendor is stationary - show location modal instead of order tracking
+    if (vendor.type === 'Stationary') {
+      setSelectedVendorForLocation(vendor);
+      setShowLocationModal(true);
+      return;
+    }
+
+    // For moving vendors, proceed with order
     const order = {
       id: Math.floor(Math.random() * 10000) + 1000,
       vendor: vendor,
@@ -395,6 +419,11 @@ function SmartBuy() {
     setShowVendorSelection(false);
     setCurrentOrder(order);
     setShowTracking(true);
+  };
+
+  const handleGetLocation = (vendor) => {
+    setSelectedVendorForLocation(vendor);
+    setShowLocationModal(true);
   };
 
   const handleKeyPress = (e) => {
@@ -501,11 +530,39 @@ function SmartBuy() {
                              <strong>Why this vendor:</strong> {vendor.reasoning}
                            </div>
                          </div>
+                         
+                         {/* Quantity selection for multi-item vendors */}
+                         <div className="vendor-items">
+                           <h5>Select Quantities:</h5>
+                           <div className="quantity-selection">
+                             {vendor.items.map((item, index) => {
+                               const quantity = getItemQuantity(vendor.id, item);
+                               const price = vendor.price.includes(item) ? 
+                                 vendor.price.split(', ').find(p => p.includes(item))?.replace(/[^\d]/g, '') || '50' : '50';
+                               
+                               return (
+                                 <label key={index}>
+                                   <span>{item === 'Tomatoes' ? '🍅' : item === 'Grapes' ? '🍇' : '🥕'} {item}:</span>
+                                   <input
+                                     type="number"
+                                     placeholder="Qty (kg)"
+                                     min="0"
+                                     value={quantity}
+                                     onChange={(e) => handleQuantityChange(vendor.id, item, parseInt(e.target.value) || 0)}
+                                     className="quantity-input"
+                                   />
+                                   <span className="price-info">₹{price}/kg</span>
+                                 </label>
+                               );
+                             })}
+                           </div>
+                         </div>
+                         
                          <button 
                            className="select-vendor-btn"
-                           onClick={() => handleVendorSelect(vendor)}
+                           onClick={() => vendor.type === 'Stationary' ? handleGetLocation(vendor) : handlePlaceOrder(vendor)}
                          >
-                           Select This Vendor
+                           {vendor.type === 'Stationary' ? '📍 Get Location' : 'Place Order'}
                          </button>
                        </div>
                      ))}
@@ -535,11 +592,31 @@ function SmartBuy() {
                             <strong>Why this vendor:</strong> {vendor.reasoning}
                           </div>
                         </div>
+                        
+                        {/* Quantity selection for bananas */}
+                        <div className="vendor-items">
+                          <h5>Select Quantity:</h5>
+                          <div className="quantity-selection">
+                            <label>
+                              <span>🍌 Bananas:</span>
+                              <input
+                                type="number"
+                                placeholder="Qty (kg)"
+                                min="0"
+                                value={getItemQuantity(vendor.id, 'Bananas')}
+                                onChange={(e) => handleQuantityChange(vendor.id, 'Bananas', parseInt(e.target.value) || 0)}
+                                className="quantity-input"
+                              />
+                              <span className="price-info">₹{vendor.price.replace(/[^\d]/g, '')}/kg</span>
+                            </label>
+                          </div>
+                        </div>
+                        
                         <button 
                           className="select-vendor-btn"
-                          onClick={() => handleVendorSelect(vendor)}
+                          onClick={() => vendor.type === 'Stationary' ? handleGetLocation(vendor) : handlePlaceOrder(vendor)}
                         >
-                          Select This Vendor
+                          {vendor.type === 'Stationary' ? '📍 Get Location' : 'Place Order'}
                         </button>
                       </div>
                     ))}
@@ -628,9 +705,9 @@ function SmartBuy() {
                         </div>
                         <button 
                           className="select-vendor-btn"
-                          onClick={() => handleVendorSelect(vendor)}
+                          onClick={() => vendor.type === 'Stationary' ? handleGetLocation(vendor) : handleVendorSelect(vendor)}
                         >
-                          Select This Vendor
+                          {vendor.type === 'Stationary' ? '📍 Get Location' : 'Select This Vendor'}
                         </button>
                       </div>
                     ))}
@@ -707,6 +784,13 @@ function SmartBuy() {
           onClose={() => setShowTracking(false)}
         />
       )}
+
+      {/* Vendor Location Modal */}
+      <VendorLocationModal
+        vendor={selectedVendorForLocation}
+        isOpen={showLocationModal}
+        onClose={() => setShowLocationModal(false)}
+      />
     </div>
   );
 }
